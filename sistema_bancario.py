@@ -49,6 +49,11 @@ while True:
     print(menu)
     try:
         opcao = int(input("\tDigite sua opção: "))
+        if opcao != 3 and extrato.find("movimentação") != -1:
+            extrato = f"""
+            \r{'extrato'.upper()}
+            \r{"-" * 30}
+            \r"""
     except ValueError:
         print(f"\nO valor digitado não é válido.\n")
         continue
@@ -103,7 +108,7 @@ while True:
         extrato += saida
 
     elif opcao == 3:
-        print(header)
+
         if extrato.find("Depósito") == -1 and extrato.find("Saque") == -1:
             if extrato.find("movimentação") == -1:
                 extrato += "Sem movimentação na conta"
@@ -111,6 +116,8 @@ while True:
             system("cls")
         else:
             system("clear")
+        print(header)
+        print(f"{'-' * 30}\nSaldo atual: R$ {saldo:.2f}\n{'-' * 30}")
         print(extrato)
         continue
 
