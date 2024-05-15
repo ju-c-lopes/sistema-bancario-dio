@@ -104,13 +104,14 @@ while True:
 
     elif opcao == 3:
         print(header)
+        if extrato.find("Depósito") == -1 and extrato.find("Saque") == -1:
+            if extrato.find("movimentação") == -1:
+                extrato += "Sem movimentação na conta"
         if platform.system() == "Windows":
             system("cls")
         else:
             system("clear")
         print(extrato)
-        if extrato.find("Depósito") == -1 and extrato.find("Saque") == -1:
-            extrato += "Sem movimentação na conta"
         continue
 
     elif opcao == 4:
